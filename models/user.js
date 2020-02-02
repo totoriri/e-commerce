@@ -5,6 +5,6 @@ const uuidv1 = require('uudd/v1')
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        trim:
+        trim:String,
     }
 })
