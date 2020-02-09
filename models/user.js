@@ -37,3 +37,14 @@ const userSchema = new mongoose.Schema({
 },
     {timestamps:true}
 )
+
+// vitual field
+userSchema.virtual('password')
+    .set(function (password) {
+        this._password = password
+        this.salt = uuidv1()
+        this.hashed_password=this.encryptPassword(password)
+    })
+    .get(function () {
+    return this._password
+})
